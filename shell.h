@@ -10,5 +10,4 @@
 #define BUFFER_SIZE 1024
 
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
-
 #endif
