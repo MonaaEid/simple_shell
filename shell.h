@@ -10,7 +10,7 @@
 #include <limits.h>
 #include <sys/wait.h>
 
-#define BUFSIZE 1024
+/*#define BUFSIZE 1024*/
 #define DELIM " \t\r\n\a"
 #define _GNU_SOURCE
 #define BUFFER_SIZE 1024
