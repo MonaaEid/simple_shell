@@ -8,14 +8,22 @@
 #include <string.h>
 #include <stdarg.h>
 #include <limits.h>
+#include <sys/wait.h>
 
+#define BUFSIZE 1024
+#define DELIM " \t\r\n\a"
 #define _GNU_SOURCE
 #define BUFFER_SIZE 1024
 
+int execute_command(char **args);
+char *read_line(void);
+char **split_line(char *line);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
-
+int _printf(const char *format, ...);
 int _putchar(int currChar);
 int print_string(char *currString);
-int _printf(const char *format, ...);
 int _strlen(char *s);
+
+
+
 #endif
