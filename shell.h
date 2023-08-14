@@ -23,6 +23,8 @@ int _printf(const char *format, ...);
 int _putchar(int currChar);
 int print_string(char *currString);
 int _strlen(char *s);
+int main(void);
+char *find_command(char *command);
 
 
 
