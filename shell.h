@@ -25,6 +25,7 @@ int print_string(char *currString);
 int _strlen(char *s);
 int main(void);
 char *find_command(char *command);
+void exitShell();
 
 
 

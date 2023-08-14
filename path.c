@@ -1,7 +1,7 @@
 #include "shell.h"
 /*
- * main - Main function of shell
- *@find_command - function prints the command
+ *main - Main function of shell
+ *find_command - function prints the command
  *Return: 0 if success and null if not
  *
  *
