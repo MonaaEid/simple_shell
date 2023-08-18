@@ -26,7 +26,10 @@ int _strlen(char *s);
 int main(void);
 char *find_command(char *command);
 void exitShell();
-
+char *_getline();
+char *enter(char *string);
+char *space(char *str);
+void hashtag_handler(char *buff);
 
 
 #endif
