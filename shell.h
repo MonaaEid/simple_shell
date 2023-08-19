@@ -14,22 +14,26 @@
 #define DELIM " \t\r\n\a"
 #define _GNU_SOURCE
 #define BUFFER_SIZE 1024
-
+extern char **environ;
 int execute_command(char **args);
+int env_builtin(void);
 char *read_line(void);
 char **split_line(char *line);
-ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
+char *_getline();
+void hashtag_handler(char *buff);
+char *space(char *str);
+char *enter(char *string);
+
 int _printf(const char *format, ...);
 int _putchar(int currChar);
 int print_string(char *currString);
-int _strlen(char *s);
-int main(void);
+size_t _strlen(const char *s);
+int is_delim(char c, const char *delim);
+char *_strtok(char *str, const char *delim);
+int cd_builtin(char **args);
+
+int _strcmp(const char *__s1, const char *__s2);
 char *find_command(char *command);
 void exitShell();
-char *_getline();
-char *enter(char *string);
-char *space(char *str);
-void hashtag_handler(char *buff);
-
 
 #endif
