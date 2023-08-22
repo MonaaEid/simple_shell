@@ -28,7 +28,8 @@ char *_getline()
 			return (enter(buffer));
 		if (i >= buffsize)
 		{
-			buffer = realloc(buffer, (buffsize + 2));
+			free(buffer);
+			buffer = malloc(buffsize + 2);
 			if (buffer == NULL)
 			{
 				free(buffer);
