@@ -55,7 +55,8 @@ int execute_command(char **args)
 		/*if (execve(args[0], args, environ) == -1)*/
 		/*if (execve(args[0], args, NULL) == -1)*/
 		{
-			perror(args[0]);
+			/*perror(args[0]);*/
+			fprintf(stderr, "%s: %d: %s: not found\n", progname, 1, args[0]); 
 		}
 		exit(EXIT_FAILURE);
 	}
