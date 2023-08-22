@@ -13,7 +13,8 @@ char **split_line(char *line)
 
 	if (tokens == NULL)
 	{
-		fprintf(stderr, "Error: memory allocation failed.\n");
+		/*fprintf(stderr, "Error: memory allocation failed.\n");*/
+		perror("Error");
 		exit(EXIT_FAILURE);
 	}
 
@@ -25,10 +26,12 @@ char **split_line(char *line)
 		if (position >= bufsize)
 		{
 			bufsize += BUFFER_SIZE;
-			tokens = realloc(tokens, bufsize * sizeof(char *));
+			free(tokens);
+			tokens = malloc( bufsize * sizeof(char *));
 			if (tokens == NULL)
 			{
-				fprintf(stderr, "Error: memory allocation failed.\n");
+				/*fprintf(stderr, "Error: memory allocation failed.\n");*/
+				perror("Error");
 				exit(EXIT_FAILURE);
 			}
 		}
