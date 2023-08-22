@@ -25,29 +25,3 @@ char *find_command(char *command)
 	}
 	return (NULL);
 }
-
-int main(void)
-{
-	char input[256];
-
-	printf("Simple Shell> ");
-	fgets(input, sizeof(input), stdin);
-	input[strcspn(input, "\n")] = '\0';
-
-	char *command = strtok(input, " ");
-	char *cmd_path = find_command(command);
-
-	if (cmd_path != NULL)
-	{
-		printf("Executing: %s\n", cmd_path);
-
-		free(cmd_path);
-	}
-	else
-	{
-		printf("Command not found: %s\n", command);
-	}
-
-	return (0);
-}
-
