@@ -15,25 +15,52 @@
 #define _GNU_SOURCE
 #define BUFFER_SIZE 1024
 extern char **environ;
-int execute_command(char **args);
-int env_builtin(void);
-char *read_line(void);
-char **split_line(char *line);
-char *_getline();
-void hashtag_handler(char *buff);
-char *space(char *str);
-char *enter(char *string);
 
+/*PRINT FUNCTIONS*/
 int _printf(const char *format, ...);
 int _putchar(int currChar);
 int print_string(char *currString);
-size_t _strlen(const char *s);
-int is_delim(char c, const char *delim);
-char *_strtok(char *str, const char *delim);
-int cd_builtin(char **args);
 
+/* LINE HANDLER FUNCTIONS*/
+char *read_line(void);
+char **split_line(char *line);
+/*char *_getline();*/
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
+
+
+/*STRING FUNCTIONS*/
 int _strcmp(const char *__s1, const char *__s2);
-char *find_command(char *command);
-void exitShell();
+char *_strtok(char *str, const char *delim);
+size_t _strlen(const char *s);
+char *_strcat(char *__restrict__ __dest, const char *__restrict__ __src);
+int _strncmp(const char *__s1, const char *__s2, size_t __n);
+
+int is_delim(char c, const char *delim);
+char *_strchr(const char *__s, int __c);
+
+/*EXECUTION FUNCTIONS*/
+int execute_command(char **args);
+int execute_builtin(char **args);
+char *find_command(const char *command);
+int _execvp(const char *file, char *const argv[]);
+
+/*char *find_command(char **dirs, char *cmd);*/
+
+/*ENVIRONMENT FUNCTIONS*/
+int env_builtin(void);
+char *_getenv(const char *name);
+int _setenv(const char *name, const char *value, int overwrite);
+int _unsetenv(const char *name);
+
+/*BUILTIN FUNCTIONS HANDLER*/
+int cd_builtin(char **args);
+int is_builtin(char *cmd);
+void hashtag_handler(char *buff);
+
+char *space(char *str);
+char *enter(char *string);
+/*void exitShell();*/
+
+
 
 #endif
