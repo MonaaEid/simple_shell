@@ -21,7 +21,7 @@ int cd_builtin(char **args)
 	else if (_strcmp(args[1], "-") == 0)
 	{
 		path = _getenv("OLDPWD");
-		_printf("%s\n", path);
+		/*_printf("%s\n", path);*/
 	}
 	else
 		path = args[1];
