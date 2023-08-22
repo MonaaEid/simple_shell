@@ -20,8 +20,8 @@ int main(void)
 	/*(void)ac; (void)av;*/
 
 	do {
-			/*write(1, "(monsh) $ ", 11);*/
-		_printf("(monsh) $ ");
+		write(1, "(monsh) $ ", 11);
+		/*_printf("(monsh) $ ");*/
 
 		line = read_line();
 
