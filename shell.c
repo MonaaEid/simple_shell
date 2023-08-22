@@ -8,6 +8,7 @@
  * Return: Always 0 (Success)
  */
 /*int main(int ac, char **av)*/
+
 int main(void)
 {
 	/*FILE *stream;*/
