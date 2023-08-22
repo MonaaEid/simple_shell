@@ -56,7 +56,12 @@ int execute_command(char **args)
 		/*if (execve(args[0], args, NULL) == -1)*/
 		{
 			/*perror(args[0]);*/
-			fprintf(stderr, "%s: %d: %s: not found\n", progname, 1, args[0]); 
+			write(STDERR_FILENO, progname, strlen(progname));
+			write(STDERR_FILENO, ": ", 2);
+			write(STDERR_FILENO, "1", 1);
+			write(STDERR_FILENO, ": ", 2);
+			write(STDERR_FILENO, args[0], strlen(args[0]));
+			write(STDERR_FILENO, ": not found\n", 12);
 		}
 		exit(EXIT_FAILURE);
 	}
