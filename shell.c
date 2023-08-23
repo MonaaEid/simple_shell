@@ -27,7 +27,7 @@ int main(int ac, char **av)
 		line = read_line();
 		args = split_line(line);
 		/*status = execute_command(args, av[0]);*/
-		status = execute_command(args);
+		status = execute_command(args, av[0);
 		free(line);
 		free(args);
 
