@@ -16,27 +16,22 @@ int execute_builtin(char **args)
 	{
 		exit(0);
 	}
-	else if (_strcmp(args[0], "cd") == 0)
-	{
-		cd_builtin(args);
-	}
 	return (1);
 }
 /**
  * execute_command - function that execute a command
  * @args: the arguments will be executed
+ * @av:program name
  * Return: the exit status of the child process or 1 or -1
 */
-
-/*int execute_command(char **args, char *progname)*/
 int execute_command(char **args, char *av)
 {
 	pid_t pid;
 	int status;
-    /*char *dirs[]= {"/bin", "/usr/bin", "/usr/local/bin", NULL};*/
 
 	if (args[0] == NULL)
 	{
+		perror(args[0]);
 		return (1);
 	}
 	if (is_builtin(args[0]))
@@ -55,11 +50,9 @@ int execute_command(char **args, char *av)
 	{
 		if (_execvp(args[0], args) == -1)
 		/*if (execve(args[0], args, environ) == -1)*/
-		/*if (execve(args[0], args, NULL) == -1)*/
 		{
-			perror(av);
-			/*print_error(progname, args[0]);*/
-
+			/*perror(av);*/
+			print_error(av, args[0]);
 		}
 		exit(EXIT_FAILURE);
 	}
@@ -71,23 +64,9 @@ int execute_command(char **args, char *av)
 			} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 			return (WEXITSTATUS(status));
 	}
+	exit(EXIT_FAILURE);
 }
 
-/**
- * env_builtin - prints the current environment
- * Return: 1 if success, -1 if error
- */
-int env_builtin(void)
-{
-	int i = 0;
-
-	while (environ[i] != NULL)
-	{
-		/*_printf("%s\n", environ[i]);*/
-		i++;
-	}
-	return (1);
-}
 /**
  * find_command - function prints the command
  * @command: the arguments will be executed
