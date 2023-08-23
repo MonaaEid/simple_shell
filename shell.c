@@ -37,7 +37,6 @@ int main(int ac, char **av)
 	}
 	else if (ac == 1)
 	do {
-		write(1, "(monsh) $ ", 11);
 
 		line = read_line();
 
@@ -47,7 +46,7 @@ int main(int ac, char **av)
 
 		free(line);
 		free(args);
-
+		write(1, "(monsh) $ ", 11);
 	} while (status);
 	return (EXIT_SUCCESS);
 }
