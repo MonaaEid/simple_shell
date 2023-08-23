@@ -9,7 +9,7 @@
 #include <stdarg.h>
 #include <limits.h>
 #include <sys/wait.h>
-
+#include <sys/types.h>
 /*#define BUFSIZE 1024*/
 #define DELIM " \t\r\n\a"
 #define _GNU_SOURCE
