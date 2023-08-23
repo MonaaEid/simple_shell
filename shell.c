@@ -16,37 +16,19 @@ int main(int ac, char **av)
 	char *line;
 	char **args;
 	int status;
+	/*FILE *file;char ch;*/
 
 	(void)ac;
 	(void)av;
-
-	if (ac != 1)
-	{
-		while (1)
-		{
-			line = read_line();
-
-			args = split_line(line);
-
-			status = execute_command(args, av[0]);
-
-			free(line);
-			free(args);
-		}
-
-	}
-	else if (ac == 1)
 	do {
-
 		line = read_line();
-
 		args = split_line(line);
-
 		status = execute_command(args, av[0]);
-
 		free(line);
 		free(args);
 		write(1, "(monsh) $ ", 11);
+
 	} while (status);
 	return (EXIT_SUCCESS);
 }
+
