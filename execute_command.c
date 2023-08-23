@@ -29,7 +29,7 @@ int execute_builtin(char **args)
 */
 
 /*int execute_command(char **args, char *progname)*/
-int execute_command(char **args)
+int execute_command(char **args, char *av)
 {
 	pid_t pid;
 	int status;
@@ -57,7 +57,7 @@ int execute_command(char **args)
 		/*if (execve(args[0], args, environ) == -1)*/
 		/*if (execve(args[0], args, NULL) == -1)*/
 		{
-			perror("Error");
+			perror(av);
 			/*print_error(progname, args[0]);*/
 
 		}
