@@ -85,7 +85,7 @@ char *_strcat(char *__restrict__ __dest, const char *__restrict__ __src)
 	return (__dest);
 }
 /**
- * strchr - function that appends the src string to the dest string
+ * _strchr - function that appends the src string to the dest string
  * @__s: pointer to a char
  * @__c: a size_t variable
  * Return: Array of tokens

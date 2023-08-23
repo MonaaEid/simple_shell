@@ -20,15 +20,22 @@ int execute_builtin(char **args)
 	{
 		cd_builtin(args);
 	}
+	else if (_strcmp(args[0], "help") == 0)
+	{
+		_printf("This is a simple shell program.\n");
+		_printf("The following are the built-in commands:\n");
+		_printf("  exit: exit the shell\n");
+		_printf("  cd: change the current working directory\n");
+		_printf("  help: display this help message\n");
+	}
 	return (1);
 }
 /**
  * execute_command - function that execute a command
  * @args: the arguments will be executed
+ * @av:program name
  * Return: the exit status of the child process or 1 or -1
 */
-
-/*int execute_command(char **args, char *progname)*/
 int execute_command(char **args, char *av)
 {
 	pid_t pid;
@@ -37,6 +44,7 @@ int execute_command(char **args, char *av)
 
 	if (args[0] == NULL)
 	{
+		perror(args[0]);
 		return (1);
 	}
 	if (is_builtin(args[0]))
@@ -55,11 +63,9 @@ int execute_command(char **args, char *av)
 	{
 		if (_execvp(args[0], args) == -1)
 		/*if (execve(args[0], args, environ) == -1)*/
-		/*if (execve(args[0], args, NULL) == -1)*/
 		{
-			perror(av);
-			/*print_error(progname, args[0]);*/
-
+			/*perror(av);*/
+			print_error(av, args[0]);
 		}
 		exit(EXIT_FAILURE);
 	}
@@ -71,6 +77,7 @@ int execute_command(char **args, char *av)
 			} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 			return (WEXITSTATUS(status));
 	}
+	return (1);
 }
 
 /**
@@ -83,7 +90,7 @@ int env_builtin(void)
 
 	while (environ[i] != NULL)
 	{
-		/*_printf("%s\n", environ[i]);*/
+		_printf("%s\n", environ[i]);
 		i++;
 	}
 	return (1);

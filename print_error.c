@@ -3,7 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-
+/**
+ * print_error - prints the error message
+ * @progname: programme name
+ * @arg: arguments
+' * Return: 1 if success, -1 if error
+ */
 void print_error(char *progname, char *arg)
 {
 	char *errmsg;
@@ -40,6 +45,7 @@ void print_error(char *progname, char *arg)
 		i++;
 		j++;
 	}
+    /*write(1, "not found", 10);*/
 	errmsg[i] = '\0';
 	perror(errmsg);
 	free(errmsg);
