@@ -39,8 +39,8 @@ int is_delim(char c, const char *delim);
 char *_strchr(const char *__s, int __c);
 
 /*EXECUTION FUNCTIONS*/
-/*int execute_command(char **args);*/
-int execute_command(char **args, char *progname);
+int execute_command(char **args);
+/*int execute_command(char **args, char *progname);*/
 int execute_builtin(char **args);
 char *find_command(const char *command);
 int _execvp(const char *file, char *const argv[]);
