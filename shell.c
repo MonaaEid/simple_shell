@@ -31,5 +31,6 @@ int main(int ac, char **av)
 		free(args);
 
 	} while (status);
-	return (EXIT_SUCCESS);
+	/*return (EXIT_SUCCESS);*/
+	return (0);
 }
