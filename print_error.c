@@ -9,7 +9,7 @@ void print_error(char *progname, char *arg)
 	char *errmsg;
 	int i, j;
 
-	errmsg = malloc(strlen(progname) + strlen(arg) + 6);
+	errmsg = malloc(_strlen(progname) + _strlen(arg) + 6);
 	if (errmsg == NULL)
 	{
 		perror("malloc");
