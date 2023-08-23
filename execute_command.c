@@ -51,8 +51,8 @@ int execute_command(char **args, char *av)
 		if (_execvp(args[0], args) == -1)
 		/*if (execve(args[0], args, environ) == -1)*/
 		{
-			/*perror(av);*/
-			print_error(av, args[0]);
+			perror(av);
+			/*print_error(av, args[0]);*/
 		}
 		exit(EXIT_FAILURE);
 	}
