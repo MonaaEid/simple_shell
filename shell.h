@@ -62,6 +62,8 @@ char *space(char *str);
 char *enter(char *string);
 /*void exitShell();*/
 
-
+void print_number(unsigned int n);
+void print_number_int(int n);
+int print_echo(char **cmd);
 
 #endif
