@@ -27,8 +27,9 @@ int execute_builtin(char **args)
  * @args: the arguments will be executed
  * Return: the exit status of the child process or 1 or -1
 */
-/*int execute_command(char **args)*/
-int execute_command(char **args, char *progname)
+
+/*int execute_command(char **args, char *progname)*/
+int execute_command(char **args)
 {
 	pid_t pid;
 	int status;
@@ -56,8 +57,8 @@ int execute_command(char **args, char *progname)
 		/*if (execve(args[0], args, environ) == -1)*/
 		/*if (execve(args[0], args, NULL) == -1)*/
 		{
-			/*perror(args[0]);*/
-			print_error(progname, args[0]);
+			perror("Error");
+			/*print_error(progname, args[0]);*/
 
 		}
 		exit(EXIT_FAILURE);
