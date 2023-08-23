@@ -21,8 +21,6 @@ int main(int ac, char **av)
 	(void)ac;
 	(void)av;
 
-
-
 	do {
 		write(1, "(monsh) $ ", 11);
 
