@@ -27,7 +27,7 @@ char **split_line(char *line)
 		{
 			bufsize += BUFFER_SIZE;
 			free(tokens);
-			tokens = malloc( bufsize * sizeof(char *));
+			tokens = malloc(bufsize * sizeof(char *));
 			if (tokens == NULL)
 			{
 				/*fprintf(stderr, "Error: memory allocation failed.\n");*/

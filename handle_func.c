@@ -45,7 +45,11 @@ int cd_builtin(char **args)
 free(pwd);
 return (1);
 }
-
+/**
+ * is_builtin - function to check if is built in or not
+ * @cmd: array of arguments
+ * Return: 1 if success, 0 if error
+ */
 int is_builtin(char *cmd)
 {
 	int i;

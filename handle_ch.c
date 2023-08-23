@@ -34,3 +34,4 @@ int print_string(char *currString)
 		return (len);
 	}
 }
+

@@ -4,6 +4,8 @@
 
 /**
  * main - Entry point
+ * @av: argument vector
+ * @ac: count of arguments
  * Description:  a UNIX command line interpreter.
  * Return: Always 0 (Success)
  */
@@ -16,7 +18,8 @@ int main(int ac, char **av)
 	char **args;
 	int status;
 
-	(void)ac; (void)av;
+	(void)ac;
+	(void)av;
 
 
 
