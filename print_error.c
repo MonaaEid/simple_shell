@@ -43,10 +43,11 @@ void print_error(char *progname, char *arg)
 	{
 		errmsg[i] = arg[j];
 		i++;
-		j++;
-	}
-    /*write(1, "not found", 10);*/
+		j++;	}
 	errmsg[i] = '\0';
-	perror(errmsg);
+	/*perror(errmsg);*/
+	write(STDERR_FILENO, errmsg, strlen(errmsg));
+	write(STDERR_FILENO, ": not found", 12);
+	_putchar('\n');
 	free(errmsg);
 }
