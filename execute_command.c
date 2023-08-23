@@ -16,18 +16,6 @@ int execute_builtin(char **args)
 	{
 		exit(0);
 	}
-	else if (_strcmp(args[0], "cd") == 0)
-	{
-		cd_builtin(args);
-	}
-	else if (_strcmp(args[0], "help") == 0)
-	{
-		_printf("This is a simple shell program.\n");
-		_printf("The following are the built-in commands:\n");
-		_printf("  exit: exit the shell\n");
-		_printf("  cd: change the current working directory\n");
-		_printf("  help: display this help message\n");
-	}
 	return (1);
 }
 /**
@@ -90,7 +78,7 @@ int env_builtin(void)
 
 	while (environ[i] != NULL)
 	{
-		_printf("%s\n", environ[i]);
+		/*_printf("%s\n", environ[i]);*/
 		i++;
 	}
 	return (1);

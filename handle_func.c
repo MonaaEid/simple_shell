@@ -32,12 +32,12 @@ int cd_builtin(char **args)
 	}
 	pwd = getcwd(NULL, 0);
 
-	if (_setenv("OLDPWD", oldpwd, 1) == -1)
+	if (setenv("OLDPWD", oldpwd, 1) == -1)
 	{
 		perror("Error setting OLDPWD");
 		return (-1);
 	}
-	else if (_setenv("PWD", pwd, 1) == -1)
+	else if (setenv("PWD", pwd, 1) == -1)
 	{
 		perror("Error setting PWD");
 		return (-1);
