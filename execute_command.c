@@ -28,7 +28,6 @@ int execute_command(char **args, char *av)
 {
 	pid_t pid;
 	int status;
-    /*char *dirs[]= {"/bin", "/usr/bin", "/usr/local/bin", NULL};*/
 
 	if (args[0] == NULL)
 	{
@@ -65,24 +64,9 @@ int execute_command(char **args, char *av)
 			} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 			return (WEXITSTATUS(status));
 	}
-	return (1);
+	exit(EXIT_FAILURE);
 }
 
-/**
- * env_builtin - prints the current environment
- * Return: 1 if success, -1 if error
- */
-int env_builtin(void)
-{
-	int i = 0;
-
-	while (environ[i] != NULL)
-	{
-		/*_printf("%s\n", environ[i]);*/
-		i++;
-	}
-	return (1);
-}
 /**
  * find_command - function prints the command
  * @command: the arguments will be executed
