@@ -49,7 +49,8 @@ int execute_command(char **args, char *av)
 	{
 		if (execvp(args[0], args) == -1)
 		{
-			perror(av);
+			(isatty(STDIN_FILENO)) ? perror(av) : print_error(av, args[0]);
+			/*perror(av);*/
 			exit(EXIT_FAILURE);
 		}
 		exit(EXIT_FAILURE);
