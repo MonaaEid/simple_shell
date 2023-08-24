@@ -20,7 +20,10 @@ int main(int ac, char **av)
 	if (ac < 1)
 		return (-1);
 	do {
-		write(1, "($) ", 5);
+		if (isatty(STDIN_FILENO))
+		{
+			write(1, "($) ", 5);
+			}
 		line = read_line();
 		if (line == NULL)
 		{
