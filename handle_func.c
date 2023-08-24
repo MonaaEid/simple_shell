@@ -43,8 +43,8 @@ int cd_builtin(char **args)
 		perror("Error setting PWD");
 		return (-1);
 	}
-free(pwd);
-return (1);
+	free(pwd);
+	return (1);
 }
 /**
  * is_builtin - function to check if is built in or not
@@ -86,4 +86,3 @@ void exit_cmd(char **args)
 	}
 	exit(status);
 }
-
