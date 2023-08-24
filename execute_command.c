@@ -35,7 +35,7 @@ int execute_command(char **args, char *av)
 		return (1);
 	}
 	if (_strcmp(args[0], "exit") == 0)
-		exit_cmd(args);
+		return (0);
 	if (_strcmp(args[0], "env") == 0)
 		return (env_builtin());
 	pid = fork();
