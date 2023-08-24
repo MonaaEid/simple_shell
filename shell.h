@@ -20,9 +20,6 @@ extern char **environ;
 int _printf(const char *format, ...);
 int _putchar(int currChar);
 int print_string(char *currString);
-int _echo(char **av);
-int _cd(char **av, int count);
-char **fillarguments(char *buf, char *separator);
 /* LINE HANDLER FUNCTIONS*/
 char *read_line(void);
 char **split_line(char *line);
