@@ -10,23 +10,31 @@
  * Return: Always 0 (Success)
  */
 int main(int ac, char **av)
-/*int main(void)*/
 {
-	/*FILE *stream;*/
 	char *line;
 	char **args;
 	int status;
 	/*FILE *file;char ch;*/
 
 	(void)ac;
-	(void)av;
 	do {
+		write(1, "($) ", 5);
 		line = read_line();
+		if (line == NULL)
+		{
+			perror(av[0]);
+			exit(EXIT_FAILURE);
+		}
 		args = split_line(line);
+		if (args == NULL)
+		{
+			free(line);
+			perror(av[0]);
+			exit(EXIT_FAILURE);
+		}
 		status = execute_command(args, av[0]);
 		free(line);
 		free(args);
-		write(1, "(monsh) $ ", 11);
 
 	} while (status);
 	return (EXIT_SUCCESS);
