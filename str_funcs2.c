@@ -44,3 +44,37 @@ int _strncmp(const char *__s1, const char *__s2, size_t __n)
 	}
 	return ((int) (*__s1 - *__s2));
 }
+/**
+ * _atoi - function to convert a string to an integer
+ * @nptr: pointer to a char
+ * Return: Array of tokens
+ */
+
+int _atoi(const char *nptr)
+{
+        int result = 0;
+        int sign = 1;
+        int i = 0;
+
+        while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\n')
+                i++;
+
+        if (nptr[i] == '+' || nptr[i] == '-')
+        {
+                if (nptr[i] == '-')
+                        sign = -1;
+                i++;
+        }
+
+        while (nptr[i] != '\0')
+        {
+                if (nptr[i] >= '0' && nptr[i] <= '9')
+                {
+                        result = result * 10 + (nptr[i] - '0');
+                }
+                else
+                        break;
+                i++;
+        }
+        return (result * sign);
+}
