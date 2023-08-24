@@ -17,6 +17,8 @@ int main(int ac, char **av)
 	/*FILE *file;char ch;*/
 
 	(void)ac;
+	if (ac < 1)
+		return (-1);
 	do {
 		write(1, "($) ", 5);
 		line = read_line();
@@ -37,6 +39,6 @@ int main(int ac, char **av)
 		free(args);
 
 	} while (status);
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
