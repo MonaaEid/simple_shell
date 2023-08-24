@@ -31,7 +31,7 @@ int execute_command(char **args, char *av)
 
 	if (args[0] == NULL)
 	{
-		perror(args[0]);
+		/*perror(args[0]);*/
 		return (1);
 	}
 	if (_strcmp(args[0], "exit") == 0)
@@ -42,16 +42,15 @@ int execute_command(char **args, char *av)
 	if (pid == -1)
 	{
 		perror("fork");
-		return (-1);
+		exit(EXIT_FAILURE);
 	}
 
 	if (pid == 0)
 	{
-		if (_execvp(args[0], args) == -1)
-		/*if (execve(args[0], args, environ) == -1)*/
+		if (execvp(args[0], args) == -1)
 		{
 			perror(av);
-			/*print_error(av, args[0]);*/
+			exit(EXIT_FAILURE);
 		}
 		exit(EXIT_FAILURE);
 	}
@@ -63,7 +62,7 @@ int execute_command(char **args, char *av)
 			} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 			return (WEXITSTATUS(status));
 	}
-	exit(EXIT_FAILURE);
+
 }
 
 /**
