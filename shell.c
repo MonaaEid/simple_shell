@@ -22,7 +22,7 @@ int main(int ac, char **av)
 	do {
 		if (isatty(STDIN_FILENO))
 		{
-			write(1, "($) ", 5);
+			write(1, "monsh ($)", 5);
 			}
 		line = read_line();
 		if (line == NULL)

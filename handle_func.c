@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include "shell.h"
 #define NUM_BUILTINS 3
+#define ERR_MSG "shell: exit: invalid argument\n"
 
 /**
  * cd_builtin - changes the current directory of the process
@@ -64,3 +65,25 @@ int is_builtin(char *cmd)
 	}
 	return (0);
 }
+
+/**
+ * exit_cmd - function to handle exit() with arguments
+ * @args: pointer to a char
+ * Return: Array of tokens
+ */
+void exit_cmd(char **args)
+{
+	int status = 0;
+
+	if (args[1] != NULL)
+	{
+		status = _atoi(args[1]);
+		if (status < 0 || status > 255)
+		{
+			write(2, ERR_MSG, sizeof(ERR_MSG));
+			return;
+		}
+	}
+	exit(status);
+}
+
