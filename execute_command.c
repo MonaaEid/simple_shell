@@ -18,6 +18,34 @@ int execute_builtin(char **args)
 	}
 	if (_strcmp(args[0], "env") == 0)
 		return (env_builtin());
+	if (strcmp(args[0], "setenv") == 0)
+	{
+		if (args[1] == NULL || args[2] == NULL || args[3] != NULL)
+		{
+			perror("Usage");
+			return (1);
+		}
+		if (setenv(args[1], args[2], 1) == -1)
+		{
+			perror("setenv");
+			return (1);
+		}
+		return (0);
+	}
+	if (strcmp(args[0], "unsetenv") == 0)
+	{
+	if (args[1] == NULL || args[2] != NULL)
+	{
+		perror("Usage");
+		return (1);
+	}
+	if (unsetenv(args[1]) == -1)
+	{
+		perror("unsetenv");
+		return (1);
+	}
+	return (0);
+	}
 	return (1);
 }
 /**
