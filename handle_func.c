@@ -80,7 +80,7 @@ void exit_cmd(char **args)
 		status = 0;
 	}
 	else
-	{	
+	{
 		status = _atoi(args[1]);
 	}
 	exit(status);
