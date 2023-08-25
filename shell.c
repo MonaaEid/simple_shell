@@ -14,11 +14,10 @@ int main(int ac, char **av)
 	char *line;
 	char **args;
 	int status;
-	/*FILE *file;char ch;*/
 
 	(void)ac;
-	if (ac < 1)
-		return (-1);
+	/*if (ac < 1)*/
+		/*return (-1);*/
 	do {
 		if (isatty(STDIN_FILENO))
 		{
