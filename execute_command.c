@@ -14,8 +14,10 @@ int execute_builtin(char **args)
 {
 	if (_strcmp(args[0], "exit") == 0)
 	{
-		exit(0);
+		return (EXIT_SUCCESS);
 	}
+	if (_strcmp(args[0], "env") == 0)
+		return (env_builtin());
 	return (1);
 }
 /**
@@ -34,10 +36,10 @@ int execute_command(char **args, char *av)
 		/*perror(args[0]);*/
 		return (1);
 	}
-	if (_strcmp(args[0], "exit") == 0)
-		return (0);
-	if (_strcmp(args[0], "env") == 0)
-		return (env_builtin());
+	if (is_builtin(args[0]))
+	{
+		return (execute_builtin(args));
+	}
 	pid = fork();
 	if (pid == -1)
 	{
@@ -122,20 +124,4 @@ int _execvp(const char *file, char *const argv[])
 		}
 	}
 	return (-1);
-}
-/**
- * env_builtin - prints the current environment
- * Return: 1 if success, -1 if error
- */
-int env_builtin(void)
-{
-	int i = 0;
-
-	while (environ[i] != NULL)
-	{
-		write(1, environ[i], _strlen(environ[i]));
-		write(1, "\n", 1);
-		i++;
-	}
-	return (1);
 }

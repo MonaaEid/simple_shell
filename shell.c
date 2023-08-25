@@ -14,16 +14,15 @@ int main(int ac, char **av)
 	char *line;
 	char **args;
 	int status;
-	/*FILE *file;char ch;*/
 
 	(void)ac;
-	if (ac < 1)
-		return (-1);
+	/*if (ac < 1)*/
+		/*return (-1);*/
 	do {
 		if (isatty(STDIN_FILENO))
 		{
-			write(1, "($) ", 5);
-			}
+			write(1, "(monsh $)", 9);
+		}
 		line = read_line();
 		if (line == NULL)
 		{

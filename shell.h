@@ -33,6 +33,7 @@ char *_strtok(char *str, const char *delim);
 size_t _strlen(const char *s);
 char *_strcat(char *__restrict__ __dest, const char *__restrict__ __src);
 int _strncmp(const char *__s1, const char *__s2, size_t __n);
+int _atoi(const char *nptr);
 
 int is_delim(char c, const char *delim);
 char *_strchr(const char *__s, int __c);
@@ -56,6 +57,7 @@ int _unsetenv(const char *name);
 int cd_builtin(char **args);
 int is_builtin(char *cmd);
 void hashtag_handler(char *buff);
+void exit_cmd(char **args);
 
 char *space(char *str);
 char *enter(char *string);
