@@ -13,7 +13,9 @@
 int execute_builtin(char **args)
 {
 	if (_strcmp(args[0], "exit") == 0)
-		return (0);
+	{
+		exit_cmd(args);
+		return (0);	}
 	if (_strcmp(args[0], "env") == 0)
 		return (env_builtin());
 	if (_strcmp(args[0], "cd") == 0)
@@ -37,11 +39,13 @@ int execute_builtin(char **args)
 		if (args[1] == NULL || args[2] != NULL)
 		{
 			perror("Usage");
-			return (1);	}
+			return (1);
+		}
 		if (unsetenv(args[1]) == -1)
 		{
 			perror("unsetenv");
-			return (1);	}
+			return (1);
+		}
 		return (0);
 	}
 	return (1);
@@ -75,7 +79,7 @@ int execute_command(char **args, char *av)
 
 	if (pid == 0)
 	{
-		if (execvp(args[0], args) == -1)
+		if (_execvp(args[0], args) == -1)
 		{
 			(isatty(STDIN_FILENO)) ? perror(av) : print_error(av, args[0]);
 			/*perror(av);*/
