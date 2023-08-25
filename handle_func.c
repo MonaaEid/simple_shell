@@ -95,6 +95,7 @@ void exit_cmd(char **args)
 	}
 
 	exit(status);
+	exit(0);
 }
 /**
  * env_builtin - prints the current environment
