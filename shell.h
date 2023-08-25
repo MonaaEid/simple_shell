@@ -66,7 +66,5 @@ char *enter(char *string);
 void print_number(unsigned int n);
 void print_number_int(int n);
 int print_echo(char **cmd);
-/*logical operator func*/
-void executeCommand(char *command);
 
 #endif
