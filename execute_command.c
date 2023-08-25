@@ -13,11 +13,11 @@
 int execute_builtin(char **args)
 {
 	if (_strcmp(args[0], "exit") == 0)
-	{
-		exit_cmd(args);
-		return (0);	}
+		return (0);
 	if (_strcmp(args[0], "env") == 0)
 		return (env_builtin());
+	if (_strcmp(args[0], "cd") == 0)
+		cd_builtin(args);
 	if (_strcmp(args[0], "setenv") == 0)
 	{
 		if (args[1] == NULL || args[2] == NULL || args[3] != NULL)
@@ -37,13 +37,11 @@ int execute_builtin(char **args)
 		if (args[1] == NULL || args[2] != NULL)
 		{
 			perror("Usage");
-			return (1);
-		}
+			return (1);	}
 		if (unsetenv(args[1]) == -1)
 		{
 			perror("unsetenv");
-			return (1);
-		}
+			return (1);	}
 		return (0);
 	}
 	return (1);
