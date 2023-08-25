@@ -14,11 +14,12 @@ int execute_builtin(char **args)
 {
 	if (_strcmp(args[0], "exit") == 0)
 	{
-		return (EXIT_SUCCESS);
+		free(args);
+		exit(0);
 	}
 	if (_strcmp(args[0], "env") == 0)
 		return (env_builtin());
-	if (strcmp(args[0], "setenv") == 0)
+	if (_strcmp(args[0], "setenv") == 0)
 	{
 		if (args[1] == NULL || args[2] == NULL || args[3] != NULL)
 		{
@@ -32,19 +33,19 @@ int execute_builtin(char **args)
 		}
 		return (0);
 	}
-	if (strcmp(args[0], "unsetenv") == 0)
+	if (_strcmp(args[0], "unsetenv") == 0)
 	{
-	if (args[1] == NULL || args[2] != NULL)
-	{
-		perror("Usage");
-		return (1);
-	}
-	if (unsetenv(args[1]) == -1)
-	{
-		perror("unsetenv");
-		return (1);
-	}
-	return (0);
+		if (args[1] == NULL || args[2] != NULL)
+		{
+			perror("Usage");
+			return (1);
+		}
+		if (unsetenv(args[1]) == -1)
+		{
+			perror("unsetenv");
+			return (1);
+		}
+		return (0);
 	}
 	return (1);
 }
