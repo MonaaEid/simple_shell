@@ -86,3 +86,19 @@ void exit_cmd(char **args)
 	}
 	exit(status);
 }
+/**
+ * env_builtin - prints the current environment
+ * Return: 1 if success, -1 if error
+ */
+int env_builtin(void)
+{
+        int i = 0;
+
+        while (environ[i] != NULL)
+        {
+                write(1, environ[i], _strlen(environ[i]));
+                write(1, "\n", 1);
+                i++;
+        }
+        return (1);
+}
