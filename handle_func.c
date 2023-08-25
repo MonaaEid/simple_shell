@@ -74,28 +74,16 @@ int is_builtin(char *cmd)
 void exit_cmd(char **args)
 {
 	int status;
-	int i;
 
 	if (args[1] == NULL)
 	{
 		status = 0;
 	}
 	else
-	{
-		for (i = 0; args[1][i] != '\0'; i++)
-		{
-			if (!_isdigit(args[1][i]))
-			{
-				write(STDERR_FILENO, "exit: Illegal number: ", 21);
-				write(STDERR_FILENO, args[1], _strlen(args[1]));
-				write(STDERR_FILENO, "\n", 1);
-			}
-		}
+	{	
 		status = _atoi(args[1]);
 	}
-
 	exit(status);
-	exit(0);
 }
 /**
  * env_builtin - prints the current environment
