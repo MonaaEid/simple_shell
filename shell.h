@@ -58,7 +58,7 @@ int cd_builtin(char **args);
 int is_builtin(char *cmd);
 void hashtag_handler(char *buff);
 void exit_cmd(char **args);
-
+int _isdigit(int c);
 char *space(char *str);
 char *enter(char *string);
 /*void exitShell();*/

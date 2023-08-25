@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "shell.h"
+
 #define NUM_BUILTINS 3
 #define ERR_MSG "shell: exit: invalid argument\n"
 
@@ -73,17 +74,27 @@ int is_builtin(char *cmd)
  */
 void exit_cmd(char **args)
 {
-	int status = 0;
+	int status;
+	int i;
 
-	if (args[1] != NULL)
+	if (args[1] == NULL)
 	{
-		status = _atoi(args[1]);
-		if (status < 0 || status > 255)
-		{
-			write(2, ERR_MSG, sizeof(ERR_MSG));
-			return;
-		}
+		status = 0;
 	}
+	else
+	{
+		for (i = 0; args[1][i] != '\0'; i++)
+		{
+			if (!_isdigit(args[1][i]))
+			{
+				write(STDERR_FILENO, "exit: Illegal number: ", 21);
+				write(STDERR_FILENO, args[1], _strlen(args[1]));
+				write(STDERR_FILENO, "\n", 1);
+			}
+		}
+		status = _atoi(args[1]);
+	}
+
 	exit(status);
 }
 /**
