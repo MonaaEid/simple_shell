@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include "shell.h"
 
-#define NUM_BUILTINS 3
+#define NUM_BUILTINS 5
 #define ERR_MSG "shell: exit: invalid argument\n"
 
 /**
@@ -55,7 +55,7 @@ int cd_builtin(char **args)
 int is_builtin(char *cmd)
 {
 	int i;
-	char *builtins[] = {"exit", "cd", "help"};
+	char *builtins[] = {"exit", "cd", "help", "setenv", "unsetenv"};
 
 	for (i = 0; i < NUM_BUILTINS; i++)
 	{
