@@ -17,7 +17,7 @@ int execute_builtin(char **args)
 		exit(0);
 	}
 	if (_strcmp(args[0], "env") == 0)
-	 	return (env_builtin());
+		return (env_builtin());
 	return (1);
 }
 /**
