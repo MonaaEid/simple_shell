@@ -54,7 +54,7 @@ int cd_builtin(char **args)
 int is_builtin(char *cmd)
 {
 	int i;
-	char *builtins[] = {"exit", "cd", "help", "setenv", "unsetenv"};
+	char *builtins[] = {"exit", "cd", "env", "setenv", "unsetenv"};
 
 	for (i = 0; i < 5; i++)
 	{
