@@ -13,9 +13,7 @@
 int execute_builtin(char **args)
 {
 	if (_strcmp(args[0], "exit") == 0)
-	{
-		exit_cmd(args);
-		return (0);	}
+		return (0);
 	if (_strcmp(args[0], "env") == 0)
 		return (env_builtin());
 	if (_strcmp(args[0], "cd") == 0)
